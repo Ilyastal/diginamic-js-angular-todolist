@@ -8,7 +8,8 @@ const routes: Routes = [
   {path: 'list', component: TodoListComponent},
   {path: 'add', component: TodoEditComponent},
   {path: 'edit/:id', component: TodoEditComponent},
-  {path: '', redirectTo: 'list', pathMatch: 'full'}
+  {path: '', redirectTo: 'list', pathMatch: 'full'},
+  {path: '**', redirectTo: 'list'}
   
 ];
 

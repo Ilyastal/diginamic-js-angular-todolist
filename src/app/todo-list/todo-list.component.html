@@ -8,18 +8,18 @@
 <table class="table table-striped">
     <thead class="">
         <tr>
-            <th scope="col">#</th>
+            <th scope="col">id</th>
             <th scope="col">Libellé de la tâche</th>
             <th scope="col">Actions</th>
         </tr>
     </thead>
     <tbody *ngIf="todolist.length > 0; else elseBlock">
-        <tr><!-- Faire en sorte qu'il y ait autant de ligne que de tâche -->
-            <th scope="row"><!-- Afficher ici l'id de la tâche --></th>
-            <td><!-- Afficher ici le label de la tâche --></td>
+        <tr *ngFor="let todo of todolist">
+            <th scope="row">{{todo.id}}</th>
+            <td>{{todo.label}}</td>
             <td>
                 <!-- Gérer l'événement clic sur ce bouton afin de rediriger vers l'édition -->
-                <button type="button" class="btn btn-outline-warning mr-2">Modifier</button>
+                <button type="button" class="btn btn-outline-warning mr-2" [routerLink]="['/edit', todo.id]">Modifier</button>
                 <!-- Gérer l'événement clic sur ce bouton afin de supprimer la tâche -->
                 <button type="button" class="btn btn-outline-danger" (click)="deleteTodo(todo.id)">Supprimer</button>
             </td>
